@@ -38,7 +38,7 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-c
 
 sudo chmod +x /usr/local/bin/docker-compose
 
-git clone https://github.com/GeoNode/geonode.git
+git clone https://github.com/GeoNode/geonode-project.git
 
 cd geonode
 
@@ -46,8 +46,8 @@ echo "Enter Your Public Address or enter localhost if your are using on local ma
 read IPADDRESS
 
 # Replace localhost ALLOWED_HOSTS=['localhost', ] to ALLOWED_HOSTS=['*' ]
-sed -i "s/'localhost',/\'*\'/g" docker-compose.override.localhost.yml
+sed -i "s/'localhost',/\'*\'/g" docker-compose.override.yml
 
-sed -i "s/localhost/$IPADDRESS/g" docker-compose.override.localhost.yml
+sed -i "s/localhost/$IPADDRESS/g" docker-compose.override.yml
 
-docker-compose -f docker-compose.yml -f docker-compose.override.localhost.yml up --build 
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build 
